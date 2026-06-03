@@ -1,16 +1,19 @@
 pub const CLI_COMMAND_NAME: &str = "sortfi";
 
+pub const PICTURE_PATH: &str = "Pictures";
 pub const PICTURE_EXTENSIONS: &[&str] = &[
     "jpg", "jpeg", "png", "gif", "webp", "svg", "ico", "bmp", "tiff", "tif", "avif", "heic",
     "heif", "jxl", "raw", "cr2", "cr3", "nef", "arw", "dng", "orf", "rw2", "pef", "raf", "psd",
     "psb", "ai", "eps", "xcf", "fig", "sketch", "cdr", "indd", "tga", "dds", "exr", "hdr",
 ];
 
+pub const MUSIC_PATH: &str = "Music";
 pub const MUSIC_EXTENSIONS: &[&str] = &[
     "mp3", "aac", "ogg", "m4a", "opus", "wma", "mp2", "amr", "ac3", "dts", "flac", "wav", "alac",
     "aiff", "aif", "ape", "wv", "tta", "mid", "midi", "mod", "s3m", "xm", "it",
 ];
 
+pub const DOCUMENT_PATH: &str = "Documents";
 pub const DOCUMENT_EXTENSIONS: &[&str] = &[
     "txt", "pdf", "doc", "docx", "rtf", "odt", "pages", "xls", "xlsx", "xlsm", "csv", "ods",
     "numbers", "ppt", "pptx", "pps", "odp", "key", "md", "markdown", "json", "xml", "yaml", "yml",
@@ -19,7 +22,21 @@ pub const DOCUMENT_EXTENSIONS: &[&str] = &[
     "dmg",
 ];
 
+pub const VIDEO_PATH: &str = "Videos";
 pub const VIDEO_EXTENSIONS: &[&str] = &[
     "mp4", "mkv", "avi", "mov", "webm", "flv", "wmv", "asf", "mpeg", "mpg", "m4v", "ts", "mts",
     "m2ts", "vob", "ogv", "mxf", "prores", "dnxhr", "3gp", "3g2",
 ];
+
+pub fn help_message() {
+    println!(
+        "
+        \n
+        No argument!
+        Use: {} directory
+        For example: {} ~
+        \n
+        ",
+        CLI_COMMAND_NAME, CLI_COMMAND_NAME
+    )
+}

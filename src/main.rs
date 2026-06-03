@@ -1,21 +1,16 @@
-use std::env;
-
-mod analysis;
 mod constants;
+mod core;
+use std::{env, path::PathBuf};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+    let home_path: PathBuf = core::get_home_path();
+
     if args.len() <= 1 {
-        println!(
-            "\n\n
-            No argument!\n
-            Use: {} directory\n
-            For example: {} ~/
-            \n\n",
-            constants::CLI_COMMAND_NAME,
-            constants::CLI_COMMAND_NAME,
-        );
+        constants::help_message();
     } else {
-        let _ = analysis::analysis(args[1].trim());
+        let currect_path = PathBuf::from(args.get(1).unwrap());
+        let result: Vec<core::File> = core::analysis(currect_path, home_path);
+        let _ = core::run_actions(result);
     }
 }
